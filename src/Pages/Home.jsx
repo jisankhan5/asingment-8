@@ -2,8 +2,13 @@ import React from "react";
 import playStor from "../assets/Group.png";
 import appStor from "../assets/app.png";
 import mobile from "../assets/hero.png";
+import { useLoaderData } from "react-router";
+import AppsMain from "./AppsMain";
 
 const Home = () => {
+    const data=useLoaderData();
+    // console.log(data);
+    
   return (
     <div>
       <div className="container mx-auto flex flex-col justify-center items-center space-y-5 my-4">
@@ -63,13 +68,13 @@ const Home = () => {
       </div>
       <div className="container mx-auto">
         <div className="text-center my-10">
-          <h1 className="text-5xl font-bold">Trending Apps</h1>
+          <h1 className="text-5xl font-bold my-2">Trending Apps</h1>
           <p className="text-[#627382]">
             Explore All Trending Apps on the Market developed by us
           </p>
         </div>
         <div>
-            
+            <AppsMain data={data}></AppsMain>
         </div>
       </div>
     </div>
