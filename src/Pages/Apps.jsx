@@ -1,17 +1,34 @@
 import React, { useState } from "react";
-import { useLoaderData } from "react-router";
+import { Link, useLoaderData } from "react-router";
 import Single20App from "./Single20App";
+import error from "../assets/App-Error.png";
 
 const Apps = () => {
   const data = useLoaderData();
   const [search, setSearch] = useState("");
-  const term = search.trim().toLocaleLowerCase();
-  const searchedProduct = term
-    ? data.filter((datas) => datas.title.toLocaleLowerCase().includes(term))
+  const searchTrim = search.trim().toLocaleLowerCase();
+  const searchedProduct = searchTrim
+    ? data.filter((datas) =>
+        datas.title.toLocaleLowerCase().includes(searchTrim)
+      )
     : data;
-    if(searchedProduct.length===0){
-      return("jisan")
-    }
+  if (searchedProduct.length === 0) {
+    return (
+      <div className="flex flex-col justify-center items-center my-5 space-y-5">
+        <img src={error} alt="Image Upcoming" />
+        <h1 className="text-5xl font-semibold">OPPS!! APP NOT FOUND</h1>
+        <p className="text-[#627382]">
+          The App you are requesting is not found on our system. please try
+          another apps
+        </p>
+        <Link to={"/"}>
+          <button className="btn bg-linear-to-l from-[#9962F2] to-[#632EE3] text-white">
+            Go Back
+          </button>
+        </Link>
+      </div>
+    );
+  }
 
   return (
     <div className="container mx-auto my-20 space-y-5">
@@ -19,8 +36,10 @@ const Apps = () => {
       <p className="text-[#627382] text-center">
         Explore All Apps on the Market developed by us. We code for Millions
       </p>
-      <div className="flex justify-between">
-        <h1 className="font-semibold text-[24px]">({searchedProduct.length})Apps Found</h1>
+      <div className="flex flex-col space-y-4 items-center md:flex md:flex-row md:justify-between">
+        <h1 className="font-semibold text-[24px]">
+          ({searchedProduct.length})Apps Found
+        </h1>
         <label className="input">
           <svg
             className="h-[1em] opacity-50"

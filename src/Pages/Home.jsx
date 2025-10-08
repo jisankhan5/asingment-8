@@ -2,13 +2,13 @@ import React from "react";
 import playStor from "../assets/Group.png";
 import appStor from "../assets/app.png";
 import mobile from "../assets/hero.png";
-import { useLoaderData } from "react-router";
+import { Link, useLoaderData } from "react-router";
 import AppsMain from "./AppsMain";
 
 const Home = () => {
-    const data=useLoaderData();
-    // console.log(data);
-    
+  const data = useLoaderData();
+  // console.log(data);
+
   return (
     <div>
       <div className="container mx-auto flex flex-col justify-center items-center space-y-5 my-4">
@@ -29,14 +29,18 @@ const Home = () => {
           </span>
         </p>
         <div>
-          <button className="btn mr-2">
-            <img src={playStor} alt="Image Upcoming" />
-            Google Play
-          </button>
-          <button className="btn">
-            <img src={appStor} alt="Image Upcoming" />
-            App Store
-          </button>
+          <Link to={"https://play.google.com/store/games?hl=en"}>
+            <button className="btn mr-2">
+              <img src={playStor} alt="Image Upcoming" />
+              Google Play
+            </button>
+          </Link>
+          <Link to={"https://www.apple.com/store"}>
+            <button className="btn">
+              <img src={appStor} alt="Image Upcoming" />
+              App Store
+            </button>
+          </Link>
         </div>
       </div>
       <div className="my-4">
@@ -74,8 +78,13 @@ const Home = () => {
           </p>
         </div>
         <div>
-            <AppsMain data={data}></AppsMain>
+          <AppsMain data={data}></AppsMain>
         </div>
+      </div>
+      <div className="container mx-auto my-10 mb-16  flex  justify-center">
+        <Link to={"/app"}>
+          <button className="btn bg-linear-to-l from-[#9962F2] to-[#632EE3] text-white">Show All Apps</button>
+        </Link>
       </div>
     </div>
   );

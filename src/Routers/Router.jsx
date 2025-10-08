@@ -7,7 +7,6 @@ import Apps from "../Pages/Apps";
 import Instal from "../Pages/Instal";
 import AppDetails from "../Pages/AppDetails";
 
-
 export const router = createBrowserRouter([
   {
     path: "/",
@@ -25,7 +24,7 @@ export const router = createBrowserRouter([
         loader: () => fetch("/Apps8.json"),
         Component: Apps,
       },
-    
+
       {
         path: "/instal",
         Component: Instal,

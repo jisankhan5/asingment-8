@@ -5,9 +5,10 @@ import { Link } from "react-router";
 
 const Single20App = ({ app }) => {
   const { image, title, downloads, ratingAvg, id } = app;
+
   return (
     <Link to={`/appDetails/${id}`}>
-      <div className="card-body bg-base-100  shadow-lg ">
+      <div className="card-body bg-base-100  shadow-lg hover:scale-120 transition ease-in-out">
         <div className="">
           <div className="flex items-center justify-center bg-[#D9D9D9] p-5 rounded-xl">
             <img className="w-40 rounded-xl" src={image} alt="Shoes" />

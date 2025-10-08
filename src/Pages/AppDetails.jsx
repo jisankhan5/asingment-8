@@ -1,23 +1,69 @@
-import React from "react";
-import { useLoaderData, useParams } from "react-router";
+import React, { useState } from "react";
+import { Link, useLoaderData, useParams } from "react-router";
 import like from "../assets/like.png";
 import arrow from "../assets/arrow.png";
 import star from "../assets/star.png";
 import down from "../assets/down.png";
-import { LineChart, Line, CartesianGrid, XAxis, YAxis, Legend, Tooltip } from 'recharts';
+import {
+  BarChart,
+  Bar,
+  XAxis,
+  YAxis,
+  CartesianGrid,
+  Tooltip,
+  ResponsiveContainer,
+  LabelList,
+} from "recharts";
+import Swal from "sweetalert2";
+import withReactContent from "sweetalert2-react-content";
 
+const MySwal = withReactContent(Swal);
 
 const AppDetails = () => {
   const { id } = useParams();
   const appId = parseInt(id);
   const details = useLoaderData();
   const singleApp = details.find((app) => app.id === appId);
-  const { image, title, ratingAvg, downloads, reviews, size, companyName,description } =
-    singleApp;
+  const {
+    image,
+    title,
+    ratingAvg,
+    downloads,
+    reviews,
+    size,
+    companyName,
+    description,
+  } = singleApp;
+  const [installed, setInstalled] = useState(false);
+  const existing = JSON.parse(localStorage.getItem("wishlist")) || [];
+  const isDupli = existing.find((a) => a.id === singleApp.id);
+  const handleAdd = () => {
+    const existingList = JSON.parse(localStorage.getItem("wishlist")) || [];
+    let updatedList = [];
+    if (existingList) {
+      const isDuplicate = existingList.some((a) => a.id === singleApp.id);
+      if (isDuplicate)
+        return Swal.fire({
+          icon: "error",
+          title: "Oops...",
+          text: "Already Installed!",
+        });
+      updatedList = [...existingList, singleApp];
+    } else {
+      updatedList.push(singleApp);
+    }
+    localStorage.setItem("wishlist", JSON.stringify(updatedList));
+    setInstalled(true);
+    Swal.fire({
+      title: "Install Success!",
+      icon: "success",
+      draggable: true,
+    });
+  };
 
   return (
     <div className="container mx-auto my-10">
-      <div className="flex gap-10 ">
+      <div className="md:flex md:flex-row gap-10 flex flex-col  items-center">
         <img className="w-[250px] h-[250px]" src={image} alt="Image Upcoming" />
         <div>
           <h1 className="text-[32px] font-bold">{title}</h1>
@@ -46,14 +92,43 @@ const AppDetails = () => {
               <h1 className="text-[40px] font-extrabold">{reviews}</h1>
             </div>
           </div>
-          <button className="btn btn-success text-white">
-            Install Now ({size}MB)
+          <button
+            className="btn btn-success text-white"
+            onClick={() => handleAdd()}
+          >
+            {installed || isDupli ? "Installed" : `Install Now (${size}MB)`}
           </button>
         </div>
       </div>
       <p className="border-t mt-5 border-gray-200"></p>
       <div>
-       
+        <div className="p-6 my-10">
+          <ResponsiveContainer width="100%" height={250}>
+            <BarChart
+              data={[...singleApp.ratings].reverse()}
+              layout="vertical"
+              margin={{ top: 10, right: 30, left: 50, bottom: 10 }}
+            >
+              <CartesianGrid strokeDasharray="3 3" />
+              <XAxis type="number" tick={{ fontSize: 12 }} />
+              <YAxis
+                dataKey="name"
+                type="category"
+                tick={{ fontSize: 12 }}
+                width={70}
+              />
+              <Tooltip formatter={(value) => value.toLocaleString()} />
+              <Bar
+                dataKey="count"
+                fill="#ff8c00"
+                barSize={25}
+                radius={[6, 6, 6, 6]}
+              >
+                <LabelList dataKey="count" position="right" fontSize={12} />
+              </Bar>
+            </BarChart>
+          </ResponsiveContainer>
+        </div>
       </div>
       <p className="border-t mt-5 border-gray-200"></p>
       <div className="my-5">
