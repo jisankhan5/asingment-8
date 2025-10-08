@@ -1,6 +1,6 @@
 import React from "react";
 import git from "../assets/git.png";
-import { Link } from "react-router";
+import { Link, NavLink } from "react-router";
 import Image from "../assets/logo.png";
 import { IoHomeOutline } from "react-icons/io5";
 import { FaAppStore } from "react-icons/fa";
@@ -33,14 +33,23 @@ const Navbar = () => {
               className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow"
             >
               <li>
-              <Link to={"/"}><IoHomeOutline />Home</Link>
-            </li>
-            <li>
-              <Link to={"/app"}><FaAppStore />Apps</Link>
-            </li>
-            <li>
-              <Link to={"/instal"}><MdOutlineInstallDesktop />Installation</Link>
-            </li>
+                <Link to={"/"}>
+                  <IoHomeOutline />
+                  Home
+                </Link>
+              </li>
+              <li>
+                <Link to={"/app"}>
+                  <FaAppStore />
+                  Apps
+                </Link>
+              </li>
+              <li>
+                <Link to={"/instal"}>
+                  <MdOutlineInstallDesktop />
+                  Installation
+                </Link>
+              </li>
             </ul>
           </div>
           <Link to={"/"} className="btn btn-ghost text-xl">
@@ -51,13 +60,46 @@ const Navbar = () => {
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal px-1">
             <li>
-              <Link  to={"/"}> <IoHomeOutline />Home</Link>
+              <NavLink
+                to="/"
+                className={({ isActive }) =>
+                  `flex items-center gap-2 ${
+                    isActive
+                      ? "text-[#632EE3] font-semibold underline"
+                      : "text-black"
+                  }`
+                }
+              >
+                <IoHomeOutline /> Home
+              </NavLink>
             </li>
             <li>
-              <Link to={"/app"}> <FaAppStore />Apps</Link>
+              <NavLink
+                to="/app"
+                className={({ isActive }) =>
+                  `flex items-center gap-2 ${
+                    isActive
+                      ? "text-[#632EE3] font-semibold underline"
+                      : "text-black"
+                  }`
+                }
+              >
+                <FaAppStore /> Apps
+              </NavLink>
             </li>
             <li>
-              <Link to={"/instal"}><MdOutlineInstallDesktop />Installation</Link>
+              <NavLink
+                to="/instal"
+                className={({ isActive }) =>
+                  `flex items-center gap-2 ${
+                    isActive
+                      ? "text-[#632EE3] font-semibold underline"
+                      : "text-black"
+                  }`
+                }
+              >
+                <MdOutlineInstallDesktop /> Installation
+              </NavLink>
             </li>
           </ul>
         </div>

@@ -6,6 +6,8 @@ import error from "../assets/App-Error.png";
 const Apps = () => {
   const data = useLoaderData();
   const [search, setSearch] = useState("");
+  const [loading, setLoading] = useState(false);
+
   const searchTrim = search.trim().toLocaleLowerCase();
   const searchedProduct = searchTrim
     ? data.filter((datas) =>
@@ -59,7 +61,13 @@ const Apps = () => {
           </svg>
           <input
             value={search}
-            onChange={(e) => setSearch(e.target.value)}
+            onChange={(e) => {
+              setSearch(e.target.value);
+              setLoading(true);
+              setTimeout(() => {
+                setLoading(false);
+              }, 200);
+            }}
             type="search"
             required
             placeholder="Search"
@@ -67,6 +75,11 @@ const Apps = () => {
         </label>
       </div>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 my-5">
+        {loading && (
+          <div className="flex justify-center my-5 col-span-full">
+            <span className="loading loading-spinner loading-lg text-green-600"></span>
+          </div>
+        )}
         {searchedProduct.map((app) => (
           <Single20App key={app.id} app={app}></Single20App>
         ))}

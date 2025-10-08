@@ -1,13 +1,43 @@
 import React, { useEffect, useState } from "react";
 import { HiMiniArrowDownTray } from "react-icons/hi2";
 import { FaStar } from "react-icons/fa";
+import { loadWishlist, removeFromWishlist } from "./Local";
+import Swal from "sweetalert2";
+import withReactContent from "sweetalert2-react-content";
+
+const MySwal = withReactContent(Swal);
 
 const Instal = () => {
-  const [appInstal, setAppInstal] = useState([]);
+  const [appInstal, setAppInstal] = useState(() => loadWishlist());
+  const [sort, setSort] = useState("none");
   useEffect(() => {
     const saveApp = JSON.parse(localStorage.getItem("wishlist")) || [];
     if (saveApp) setAppInstal(saveApp);
   }, []);
+
+  const sorted = () => {
+    if (sort === "download-asc") {
+      return [...appInstal].sort((a, b) => a.downloads - b.downloads);
+    } else if (sort === "download-desc") {
+      return [...appInstal].sort((a, b) => b.downloads - a.downloads);
+    } else {
+      return appInstal;
+    }
+  };
+
+  const handleRemove = (id) => {
+    Swal.fire({
+      title: "Are you sure?",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, delete it!",
+    });
+    removeFromWishlist(id);
+    setAppInstal((prev) => prev.filter((p) => p.id !== id));
+  };
+
   return (
     <div className="container mx-auto my-[80px]">
       <h1 className="text-center text-[48px] font-bold">Your Installed Apps</h1>
@@ -19,10 +49,20 @@ const Instal = () => {
         <h1 className="font-semibold text-2xl my-6">
           {appInstal.length} Apps Found
         </h1>
-        <button>Sort</button>
+        <label className="form-control w-full max-w-xs">
+          <select
+            className="select select-bordered"
+            value={sort}
+            onChange={(e) => setSort(e.target.value)}
+          >
+            <option value="none">Sort By Size</option>
+            <option value="download-asc">Low To High</option>
+            <option value="download-desc">High To Low</option>
+          </select>
+        </label>
       </div>
       <div>
-        {appInstal.map((app) => (
+        {sorted().map((app) => (
           <div
             key={app.id}
             className="card-body rounded-2xl shadow-xl hover:bg-gray-300 hover:scale-102 transition ease-in-out"
@@ -41,7 +81,7 @@ const Instal = () => {
                   <div className="flex gap-5 font-medium text-2xl mt-4">
                     <p className="flex  items-center text-[#00D390]">
                       <HiMiniArrowDownTray />
-                      {app.downloads}
+                      {app.downloads}M
                     </p>
                     <p className="flex  items-center text-[#FF8811]">
                       <FaStar />
@@ -51,7 +91,12 @@ const Instal = () => {
                   </div>
                 </div>
               </div>
-              <button className="btn  btn-success text-white">Uninstall</button>
+              <button
+                onClick={() => handleRemove(app.id)}
+                className="btn  btn-success text-white"
+              >
+                Uninstall
+              </button>
             </div>
           </div>
         ))}
