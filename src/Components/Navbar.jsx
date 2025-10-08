@@ -2,6 +2,9 @@ import React from "react";
 import git from "../assets/git.png";
 import { Link } from "react-router";
 import Image from "../assets/logo.png";
+import { IoHomeOutline } from "react-icons/io5";
+import { FaAppStore } from "react-icons/fa";
+import { MdOutlineInstallDesktop } from "react-icons/md";
 
 const Navbar = () => {
   return (
@@ -31,13 +34,13 @@ const Navbar = () => {
               className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow"
             >
               <li>
-              <Link to={"/home"}>Home</Link>
+              <Link to={"/home"}><IoHomeOutline />Home</Link>
             </li>
             <li>
-              <Link to={"/app"}>Apps</Link>
+              <Link to={"/app"}><FaAppStore />Apps</Link>
             </li>
             <li>
-              <Link to={"/instal"}>Installation</Link>
+              <Link to={"/instal"}><MdOutlineInstallDesktop />Installation</Link>
             </li>
             </ul>
           </div>
@@ -49,13 +52,13 @@ const Navbar = () => {
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal px-1">
             <li>
-              <Link to={"/home"}>Home</Link>
+              <Link  to={"/home"}> <IoHomeOutline />Home</Link>
             </li>
             <li>
-              <Link to={"/app"}>Apps</Link>
+              <Link to={"/app"}> <FaAppStore />Apps</Link>
             </li>
             <li>
-              <Link to={"/instal"}>Installation</Link>
+              <Link to={"/instal"}><MdOutlineInstallDesktop />Installation</Link>
             </li>
           </ul>
         </div>
