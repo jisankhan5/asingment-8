@@ -3,9 +3,8 @@ import { FaDownload } from "react-icons/fa";
 import { FaStar } from "react-icons/fa";
 import { Link } from "react-router";
 
-const SingleApp = ({ app }) => {
+const Single20App = ({ app }) => {
   const { image, title, downloads, ratingAvg,id } = app;
-
   return (
     <Link to={`/appDetails/${id}`}>
       <div className="card-body bg-base-100  shadow-lg ">
@@ -30,4 +29,4 @@ const SingleApp = ({ app }) => {
   );
 };
 
-export default SingleApp;
+export default Single20App;

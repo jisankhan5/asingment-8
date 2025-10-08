@@ -5,6 +5,8 @@ import Root from "../Pages/Root";
 import Home from "../Pages/Home";
 import Apps from "../Pages/Apps";
 import Instal from "../Pages/Instal";
+import AppDetails from "../Pages/AppDetails";
+
 
 export const router = createBrowserRouter([
   {
@@ -14,17 +16,24 @@ export const router = createBrowserRouter([
     children: [
       {
         index: true,
-        loader:()=>fetch("/Apps8.json"),
+        loader: () => fetch("/Apps8.json"),
         path: "/",
         Component: Home,
       },
       {
         path: "/app",
+        loader: () => fetch("/Apps8.json"),
         Component: Apps,
       },
+    
       {
         path: "/instal",
         Component: Instal,
+      },
+      {
+        path: "/appDetails/:id",
+        loader: () => fetch("/Apps8.json"),
+        Component: AppDetails,
       },
     ],
   },
