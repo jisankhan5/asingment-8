@@ -4,7 +4,7 @@ import { FaStar } from "react-icons/fa";
 import { Link } from "react-router";
 
 const Single20App = ({ app }) => {
-  const { image, title, downloads, ratingAvg,id } = app;
+  const { image, title, downloads, ratingAvg, id } = app;
   return (
     <Link to={`/appDetails/${id}`}>
       <div className="card-body bg-base-100  shadow-lg ">

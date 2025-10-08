@@ -1,9 +1,17 @@
-import React from "react";
+import React, { useState } from "react";
 import { useLoaderData } from "react-router";
 import Single20App from "./Single20App";
 
 const Apps = () => {
   const data = useLoaderData();
+  const [search, setSearch] = useState("");
+  const term = search.trim().toLocaleLowerCase();
+  const searchedProduct = term
+    ? data.filter((datas) => datas.title.toLocaleLowerCase().includes(term))
+    : data;
+    if(searchedProduct.length===0){
+      return("jisan")
+    }
 
   return (
     <div className="container mx-auto my-20 space-y-5">
@@ -12,7 +20,7 @@ const Apps = () => {
         Explore All Apps on the Market developed by us. We code for Millions
       </p>
       <div className="flex justify-between">
-        <h1 className="font-semibold text-[24px]">({data.length})Apps Found</h1>
+        <h1 className="font-semibold text-[24px]">({searchedProduct.length})Apps Found</h1>
         <label className="input">
           <svg
             className="h-[1em] opacity-50"
@@ -30,11 +38,17 @@ const Apps = () => {
               <path d="m21 21-4.3-4.3"></path>
             </g>
           </svg>
-          <input type="search" required placeholder="Search" />
+          <input
+            value={search}
+            onChange={(e) => setSearch(e.target.value)}
+            type="search"
+            required
+            placeholder="Search"
+          />
         </label>
       </div>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 my-5">
-        {data.map((app) => (
+        {searchedProduct.map((app) => (
           <Single20App key={app.id} app={app}></Single20App>
         ))}
       </div>

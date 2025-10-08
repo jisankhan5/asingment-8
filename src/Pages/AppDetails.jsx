@@ -4,13 +4,15 @@ import like from "../assets/like.png";
 import arrow from "../assets/arrow.png";
 import star from "../assets/star.png";
 import down from "../assets/down.png";
+import { LineChart, Line, CartesianGrid, XAxis, YAxis, Legend, Tooltip } from 'recharts';
+
 
 const AppDetails = () => {
   const { id } = useParams();
   const appId = parseInt(id);
   const details = useLoaderData();
   const singleApp = details.find((app) => app.id === appId);
-  const { image, title, ratingAvg, downloads, reviews, size, companyName } =
+  const { image, title, ratingAvg, downloads, reviews, size, companyName,description } =
     singleApp;
 
   return (
@@ -51,9 +53,13 @@ const AppDetails = () => {
       </div>
       <p className="border-t mt-5 border-gray-200"></p>
       <div>
-        
+       
       </div>
-      <div></div>
+      <p className="border-t mt-5 border-gray-200"></p>
+      <div className="my-5">
+        <h1 className="text-[24px] font-semibold my-3">Description</h1>
+        <p className="text-[#627382]">{description}</p>
+      </div>
     </div>
   );
 };
