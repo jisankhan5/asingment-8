@@ -1,0 +1,146 @@
+[
+  {
+    "image": "https://play-lh.googleusercontent.com/s6n7Rh9OtjH0sEpF9xYYm1J4oTArMUbvQoz0Nok4U15mQHPBYA6P4wZp1H3WZ3xvRA=w480-h960",
+    "title": "Todoist",
+    "companyName": "Doist Inc",
+    "id": 1,
+    "description": "Organize your life with powerful to-do lists, tasks, and projects.",
+    "size": 45,
+    "reviews": 1200,
+    "ratingAvg": 4.5,
+    "downloads": 5000000,
+    "ratings": [
+      { "name": "1 star", "count": 100 },
+      { "name": "2 star", "count": 150 },
+      { "name": "3 star", "count": 300 },
+      { "name": "4 star", "count": 1200 },
+      { "name": "5 star", "count": 3500 }
+    ]
+  },
+  {
+    "image": "https://play-lh.googleusercontent.com/EhxUd5bShJXr2rG8LBGeZTP6gOkmUtka6BBmIoPpQi7k9AYL5e7uHX3ikfKicvchsw=w480-h960",
+    "title": "Snapseed",
+    "companyName": "Google LLC",
+    "id": 2,
+    "description": "Professional photo editing tools at your fingertips.",
+    "size": 80,
+    "reviews": 890,
+    "ratingAvg": 4.6,
+    "downloads": 100000000,
+    "ratings": [
+      { "name": "1 star", "count": 500 },
+      { "name": "2 star", "count": 800 },
+      { "name": "3 star", "count": 2000 },
+      { "name": "4 star", "count": 9000 },
+      { "name": "5 star", "count": 78000 }
+    ]
+  },
+  {
+    "image": "https://play-lh.googleusercontent.com/4vqz4cUrXW4C-Pn3UQuEOV-JdS7ofKJ6Zuj0OPW1Bo7LfJc1pA8A49ebSISdC_Rmcw=w480-h960",
+    "title": "MyFitnessPal",
+    "companyName": "MyFitnessPal, Inc.",
+    "id": 3,
+    "description": "Track meals, exercise, and calories for a healthier lifestyle.",
+    "size": 60,
+    "reviews": 2500,
+    "ratingAvg": 4.8,
+    "downloads": 100000000,
+    "ratings": [
+      { "name": "1 star", "count": 1000 },
+      { "name": "2 star", "count": 1500 },
+      { "name": "3 star", "count": 3500 },
+      { "name": "4 star", "count": 15000 },
+      { "name": "5 star", "count": 70000 }
+    ]
+  },
+  {
+    "image": "https://play-lh.googleusercontent.com/TbmX-Ga35ZVJRCb1kdlwRtnJuxhGEaOacm8F2YB7xzn-3b2vqgaTjDXSezUaxfBv6Q=w480-h960",
+    "title": "Evernote",
+    "companyName": "Evernote Corporation",
+    "id": 4,
+    "description": "Write notes, plan projects, and organize your life easily.",
+    "size": 25,
+    "reviews": 540,
+    "ratingAvg": 4.2,
+    "downloads": 100000000,
+    "ratings": [
+      { "name": "1 star", "count": 500 },
+      { "name": "2 star", "count": 800 },
+      { "name": "3 star", "count": 1500 },
+      { "name": "4 star", "count": 4000 },
+      { "name": "5 star", "count": 20000 }
+    ]
+  },
+  {
+    "image": "https://play-lh.googleusercontent.com/hm2-XYhvQ6gEvMNHdISW1LlyPjzW2_y8ReByoXz1eRy-Sy07_R6Pl3vQz0QNR-6WZQ=w480-h960",
+    "title": "Game Booster 4x Faster",
+    "companyName": "G19 Mobile",
+    "id": 5,
+    "description": "Boost your mobile gaming performance and reduce lag.",
+    "size": 70,
+    "reviews": 4300,
+    "ratingAvg": 4.7,
+    "downloads": 50000000,
+    "ratings": [
+      { "name": "1 star", "count": 2000 },
+      { "name": "2 star", "count": 2500 },
+      { "name": "3 star", "count": 5000 },
+      { "name": "4 star", "count": 15000 },
+      { "name": "5 star", "count": 48000 }
+    ]
+  },
+  {
+    "image": "https://play-lh.googleusercontent.com/1dX5EM3y8_1m03EDb50bRl8HgH3Unpw9bAB0gOy_G2bKuqvqZ6PO5jK6acK2T4Eq3w=w480-h960",
+    "title": "Khan Academy",
+    "companyName": "Khan Academy",
+    "id": 6,
+    "description": "Free education for everyone — learn math, science, coding, and more.",
+    "size": 90,
+    "reviews": 3100,
+    "ratingAvg": 4.6,
+    "downloads": 10000000,
+    "ratings": [
+      { "name": "1 star", "count": 1000 },
+      { "name": "2 star", "count": 1300 },
+      { "name": "3 star", "count": 2200 },
+      { "name": "4 star", "count": 5000 },
+      { "name": "5 star", "count": 18000 }
+    ]
+  },
+  {
+    "image": "https://play-lh.googleusercontent.com/YncxU4AK8X8p5w7nSMWAV4K5Uf5xO9C7o-JNoeX8WZcnT9jR1iDq6ENkVmh3bV7KnxM=w480-h960",
+    "title": "Money Manager",
+    "companyName": "Realbyte Inc.",
+    "id": 7,
+    "description": "Manage your expenses and track financial habits with ease.",
+    "size": 35,
+    "reviews": 1600,
+    "ratingAvg": 4.4,
+    "downloads": 10000000,
+    "ratings": [
+      { "name": "1 star", "count": 600 },
+      { "name": "2 star", "count": 800 },
+      { "name": "3 star", "count": 1300 },
+      { "name": "4 star", "count": 4000 },
+      { "name": "5 star", "count": 8000 }
+    ]
+  },
+  {
+    "image": "https://play-lh.googleusercontent.com/z-x6k7vUgM4HQzz4_iPKFzXYK8yWPt9H8N8VqkZZbWnC0jO8f1z8bXbTjOVgxgCOFg=w480-h960",
+    "title": "Spotify",
+    "companyName": "Spotify AB",
+    "id": 8,
+    "description": "Stream and download your favorite songs, albums, and podcasts.",
+    "size": 120,
+    "reviews": 5200,
+    "ratingAvg": 4.9,
+    "downloads": 1000000000,
+    "ratings": [
+      { "name": "1 star", "count": 3000 },
+      { "name": "2 star", "count": 4000 },
+      { "name": "3 star", "count": 8000 },
+      { "name": "4 star", "count": 25000 },
+      { "name": "5 star", "count": 180000 }
+    ]
+  }
+]
