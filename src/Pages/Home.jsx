@@ -30,13 +30,13 @@ const Home = () => {
         </p>
         <div>
           <Link to={"https://play.google.com/store/games?hl=en"}>
-            <button className="btn mr-2">
+            <button className="btn mr-2 hover:scale-102 transition ease-in-out">
               <img src={playStor} alt="Image Upcoming" />
               Google Play
             </button>
           </Link>
           <Link to={"https://www.apple.com/store"}>
-            <button className="btn">
+            <button className="btn hover:scale-102 transition ease-in-out">
               <img src={appStor} alt="Image Upcoming" />
               App Store
             </button>

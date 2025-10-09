@@ -67,8 +67,8 @@ const Instal = () => {
             key={app.id}
             className="card-body rounded-2xl shadow-xl hover:bg-gray-300 hover:scale-102 transition ease-in-out"
           >
-            <div className="flex justify-between items-center">
-              <div className="flex gap-5">
+            <div className="md:flex justify-between items-center">
+              <div className="md:flex gap-5">
                 <div className="bg-[#D9D9D9] p-4 rounded-2xl">
                   <img
                     className="w-16 h-16 rounded-xl"
