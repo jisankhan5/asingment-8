@@ -2,10 +2,7 @@ import React, { useEffect, useState } from "react";
 import { HiMiniArrowDownTray } from "react-icons/hi2";
 import { FaStar } from "react-icons/fa";
 import { loadWishlist, removeFromWishlist } from "./Local";
-import Swal from "sweetalert2";
-import withReactContent from "sweetalert2-react-content";
-
-const MySwal = withReactContent(Swal);
+import { ToastContainer, toast } from 'react-toastify';
 
 const Instal = () => {
   const [appInstal, setAppInstal] = useState(() => loadWishlist());
@@ -26,20 +23,14 @@ const Instal = () => {
   };
 
   const handleRemove = (id) => {
-    Swal.fire({
-      title: "Are you sure?",
-      icon: "warning",
-      showCancelButton: true,
-      confirmButtonColor: "#3085d6",
-      cancelButtonColor: "#d33",
-      confirmButtonText: "Yes, delete it!",
-    });
+    toast('Successfully App Uninstalled!')
     removeFromWishlist(id);
     setAppInstal((prev) => prev.filter((p) => p.id !== id));
   };
 
   return (
     <div className="container mx-auto my-[80px]">
+      <ToastContainer />
       <h1 className="text-center text-[48px] font-bold">Your Installed Apps</h1>
       <p className="text-center text-[#627382]">
         Explore All Trending Apps on the Market developed by us
@@ -91,12 +82,11 @@ const Instal = () => {
                   </div>
                 </div>
               </div>
-              <button
-                onClick={() => handleRemove(app.id)}
-                className="btn  btn-success text-white"
-              >
+              <button onClick={() => handleRemove(app.id)}
+                className="btn  btn-success text-white">
                 Uninstall
               </button>
+               
             </div>
           </div>
         ))}

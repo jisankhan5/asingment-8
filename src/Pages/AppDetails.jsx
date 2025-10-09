@@ -4,6 +4,7 @@ import like from "../assets/like.png";
 import arrow from "../assets/arrow.png";
 import star from "../assets/star.png";
 import down from "../assets/down.png";
+import { ToastContainer, toast } from 'react-toastify';
 import {
   BarChart,
   Bar,
@@ -14,10 +15,6 @@ import {
   ResponsiveContainer,
   LabelList,
 } from "recharts";
-import Swal from "sweetalert2";
-import withReactContent from "sweetalert2-react-content";
-
-const MySwal = withReactContent(Swal);
 
 const AppDetails = () => {
   const { id } = useParams();
@@ -43,22 +40,14 @@ const AppDetails = () => {
     if (existingList) {
       const isDuplicate = existingList.some((a) => a.id === singleApp.id);
       if (isDuplicate)
-        return Swal.fire({
-          icon: "error",
-          title: "Oops...",
-          text: "Already Installed!",
-        });
+        return toast('Already Exist!')
       updatedList = [...existingList, singleApp];
     } else {
       updatedList.push(singleApp);
     }
     localStorage.setItem("wishlist", JSON.stringify(updatedList));
     setInstalled(true);
-    Swal.fire({
-      title: "Install Success!",
-      icon: "success",
-      draggable: true,
-    });
+    toast('Successfully App installed!')
   };
 
   return (
@@ -98,6 +87,7 @@ const AppDetails = () => {
           >
             {installed || isDupli ? "Installed" : `Install Now (${size}MB)`}
           </button>
+          <ToastContainer />
         </div>
       </div>
       <p className="border-t mt-5 border-gray-200"></p>
