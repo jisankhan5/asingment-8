@@ -17,7 +17,7 @@ const Single20App = ({ app }) => {
           <div className="card-actions justify-between">
             <div className="badge badge-outline bg-[#F1F5E8] text-[#00D390]">
               <FaDownload />
-              {downloads}
+              {downloads}M
             </div>
             <div className="badge badge-outline bg-[#FFF0E1] text-[#FF8811]">
               <FaStar />
